@@ -9,6 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav className="flex gap-6">
             <a href="/" className="hover:text-purple-300">Home</a>
             <a href="/projects" className="hover:text-purple-300">Projects</a>
+            <a href="/contact" className="hover:text-purple-300">Contact</a>
           </nav>
           <div className = "flex gap-4">
             <a
