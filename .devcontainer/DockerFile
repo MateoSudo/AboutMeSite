@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 SHELL ["/bin/bash", "-c"]
 
 # Pre-install pnpm globally (optional, or just do in postCreateCommand)
-# RUN npm install -g pnpm
+RUN npm install -g pnpm
 
 EXPOSE 3000
 
