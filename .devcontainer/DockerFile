@@ -1,0 +1,21 @@
+FROM node:20-bullseye
+
+WORKDIR /workspace
+
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    openssh-client \
+    vim \
+    && rm -rf /var/lib/apt/lists/*
+
+# Default shell
+SHELL ["/bin/bash", "-c"]
+
+# Pre-install pnpm globally (optional, or just do in postCreateCommand)
+# RUN npm install -g pnpm
+
+EXPOSE 3000
+
+CMD ["bash"]
+

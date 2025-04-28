@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      - ~/.gitconfig:/root/.gitconfig:cached
+      - ~/.git-credentials:/root/.git-credentials:cached
+    ports:
+      - "3000:3000"
+    command: bash -c "pnpm dev"
