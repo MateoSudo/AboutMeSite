@@ -1,5 +1,5 @@
 # Use a lightweight base image
-FROM mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:18
 
 # Set the working directory
 WORKDIR /app

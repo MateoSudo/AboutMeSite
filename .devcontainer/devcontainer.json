@@ -4,17 +4,29 @@
 	"name": "Node.js & TypeScript",
 	"dockerFile": "../DockerFile",
 	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite",
-	"waitFor": "updateContentCommand",
+	"mounts": "source=${localWorkspaceFolder}/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind",
+
 	"postCreateCommand": "npm install",
 	"postAttachCommand": "npm run dev",
 
 	"customizations": {
 		"vscode": {
-			"extensions": [
-				"ms-vscode-remote.remote-containers"
-			]
-		}
-	},
+        "extensions": [
+            "ms-vscode-remote.remote-containers", // Already included
+            "dbaeumer.vscode-eslint",            // Example: ESLint
+            "esbenp.prettier-vscode",            // Example: Prettier
+            "prisma.prisma",                     // Example: Prisma
+            "ms-azuretools.vscode-docker",        // Example: Docker
+			"eamodio.gitlens",                   // GitLens
+			"bradlc.vscode-tailwindcss",         // Tailwind CSS
+			"pranaygp.vscode-css-peek",          // CSS Peek
+			"ms-edgedevtools.vscode-edge-devtools", // Debugger for Edge
+			"ecmel.vscode-html-css",             // HTML/CSS IntelliSense
+			"donjayamanne.python-extension-pack", // Python Extension Pack
+			"ms-vscode.vscode-typescript-next",  // TypeScript and JavaScript
+			"bierner.markdown-mermaid"
+	]
+    },
 	
 	"portsAttributes": {
 		"3000": {
