@@ -8,5 +8,4 @@ Dockerfile
 dist
 coverage
 .dockerignore
-.devcontainer
 .gitignore
