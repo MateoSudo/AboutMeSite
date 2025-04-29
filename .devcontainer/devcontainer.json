@@ -3,8 +3,8 @@
 {
 	"name": "Node.js & TypeScript",
 	"dockerFile": "../DockerFile",
-	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite",
-	"mounts": ["source=${localWorkspaceFolder}/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind"],
+	"workspaceFolder": "${localWorkspaceFolder}/AboutMeSite/", //specify workspace for app
+	//"mounts": ["source=${localWorkspaceFolder}/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind"], //specify mount for the .env
 
 	"postCreateCommand": "npm install",
 	"postAttachCommand": "npm run dev",
