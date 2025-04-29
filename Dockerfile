@@ -7,10 +7,6 @@ WORKDIR /app
 # Copy only package.json and package-lock.json first to leverage Docker caching
 COPY AboutMeSite/package*.json ./
 
-
-# Install dependencies
-RUN npm install -g pnpm && pnpm install --prod
-
 # Copy the rest of the application files
 COPY AboutMeSite/ .
 
