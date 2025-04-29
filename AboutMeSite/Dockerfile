@@ -4,7 +4,7 @@ FROM debian:bullseye-slim
 RUN apt update && apt install -y curl unzip git sudo less man-db
 
 # Create a non-root user
-ARG USERNAME=developer
+ARG USERNAME=matthew
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 

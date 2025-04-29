@@ -32,7 +32,7 @@
     },
     
     "postCreateCommand": "bun install",
-    "remoteUser": "developer",
+    "remoteUser": "matthew",
     "initializeCommand": "echo 'Connected'",
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
