@@ -3,14 +3,9 @@
 {
 	"name": "Node.js & TypeScript",
 	"dockerFile": "../DockerFile",
-
-	"updateContentCommand": "pnpm install",
-
+	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite",
 	"waitFor": "updateContentCommand",
-
 	"postCreateCommand": "pnpm install",
-	
-
 	"postAttachCommand": "pnpm dev",
 
 	"customizations": {
