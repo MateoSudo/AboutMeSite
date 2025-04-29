@@ -5,8 +5,8 @@
 	"dockerFile": "../DockerFile",
 	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite",
 	"waitFor": "updateContentCommand",
-	"postCreateCommand": "pnpm install",
-	"postAttachCommand": "pnpm dev",
+	"postCreateCommand": "npm install",
+	"postAttachCommand": "npm run dev",
 
 	"customizations": {
 		"vscode": {
