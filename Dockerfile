@@ -1,14 +1,11 @@
 # Use a lightweight base image
 FROM mcr.microsoft.com/devcontainers/typescript-node:18
 
-# Set the working directory
-WORKDIR /app
-
 # Copy only package.json and package-lock.json first to leverage Docker caching
-COPY AboutMeSite/package*.json ./
+COPY AboutMeSite/package*.json /workspace/
 
 # Copy the rest of the application files
-COPY AboutMeSite/ .
+COPY AboutMeSite/ /workspace/
 
 # Expose the application port
 EXPOSE 3000
