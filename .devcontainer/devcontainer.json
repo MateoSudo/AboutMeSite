@@ -5,8 +5,11 @@
 	"dockerFile": "../DockerFile",
 
 	"updateContentCommand": "pnpm install",
-	
+
 	"waitFor": "updateContentCommand",
+
+	"postCreateCommand": "pnpm install",
+	
 
 	"postAttachCommand": "pnpm dev",
 
