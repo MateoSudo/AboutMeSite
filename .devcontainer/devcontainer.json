@@ -4,7 +4,7 @@
 	"name": "Node.js & TypeScript",
 	"dockerFile": "../DockerFile",
 	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite",
-	"mounts": "source=${localWorkspaceFolder}/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind",
+	"mounts": ["source=${localWorkspaceFolder}/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind"],
 
 	"postCreateCommand": "npm install",
 	"postAttachCommand": "npm run dev",
@@ -37,7 +37,7 @@
 	"forwardPorts": [3000]
 
 
-
+	}
 
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
