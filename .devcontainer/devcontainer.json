@@ -3,8 +3,11 @@
 {
 	"name": "Node.js & TypeScript",
 	"dockerFile": "../DockerFile",
-	"workspaceFolder": "${localWorkspaceFolder}/NextWebDev/AboutMeSite", //specify workspace for app
-	//"mounts": [ "/workspaces/NextWebDev/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind"], //specify mount for the .env
+	"workspaceFolder": "/workspaces/NextWebDev/AboutMeSite", //specify workspace for app
+	"mounts": [ "/workspaces/NextWebDev/AboutMeSite/.env,target=/workspaces/NextWebDev/AboutMeSite/.env,type=bind",
+				"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
+        		"source=${localEnv:HOME}/.git-credentials,target=/root/.git-credentials,type=bind,consistency=cached"
+    		], //specify mount for the .env
 
 	"postCreateCommand": "npm install",
 	"postAttachCommand": "npm run dev",
@@ -16,7 +19,6 @@
             "dbaeumer.vscode-eslint",            // Example: ESLint
             "esbenp.prettier-vscode",            // Example: Prettier
             "prisma.prisma",                     // Example: Prisma
-            "ms-azuretools.vscode-docker",        // Example: Docker
 			"eamodio.gitlens",                   // GitLens
 			"bradlc.vscode-tailwindcss",         // Tailwind CSS
 			"pranaygp.vscode-css-peek",          // CSS Peek
@@ -24,7 +26,8 @@
 			"ecmel.vscode-html-css",             // HTML/CSS IntelliSense
 			"donjayamanne.python-extension-pack", // Python Extension Pack
 			"ms-vscode.vscode-typescript-next",  // TypeScript and JavaScript
-			"bierner.markdown-mermaid"
+			"bierner.markdown-mermaid",
+			"github.copilot"					//github co-pilot
 	]
     },
 	
