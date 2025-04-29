@@ -40,6 +40,7 @@
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
     ],
-    "postStartCommand": "code --install-extension ms-edgedevtools.vscode-edge-devtools && code --enable-proposed-api ms-edgedevtools.vscode-edge-devtools && echo 'Opening Edge DevTools...' && code --open-url http://localhost:3000"
+    "postStartCommand": "if command -v code >/dev/null 2>&1; then code --install-extension ms-edgedevtools.vscode-edge-devtools && code --enable-proposed-api ms-edgedevtools.vscode-edge-devtools && echo 'Opening Edge DevTools...' && code --open-url http://localhost:3000; else echo 'code CLI not found, skipping Edge DevTools setup'; fi"
   }
+
 
