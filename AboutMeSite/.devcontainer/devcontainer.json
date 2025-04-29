@@ -26,7 +26,10 @@
       "github.copilot",
       "oven.bun-vscode",
       "eamodio.gitlens",
-      "ms-edgedevtools.vscode-edge-devtools"
+      "ms-edgedevtools.vscode-edge-devtools",
+      "ms-azuretools.vscode-docker", // Docker Desktop extension
+      "pranaygp.vscode-css-peek",   // CSS Peek extension
+      "ecmel.vscode-html-css"
     ]
         }
     },
@@ -36,6 +39,7 @@
     "initializeCommand": "echo 'Connected'",
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
-    ]
+    ],
+    "postStartCommand": "code --install-extension ms-edgedevtools.vscode-edge-devtools && code --enable-proposed-api ms-edgedevtools.vscode-edge-devtools && echo 'Opening Edge DevTools...' && code --open-url http://localhost:3000"
   }
 
