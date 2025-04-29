@@ -1,60 +1,41 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-    "name": "Node.js & TypeScript",
-    "dockerFile": "../DockerFile",
-    "workspaceFolder": "/workspaces/NextWebDev",
-
-    "mounts": [
-        "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
-        "source=${localEnv:HOME}/.git-credentials,target=/root/.git-credentials,type=bind,consistency=cached"
-    ],
-
-    "postCreateCommand": "npm install",
-    "postAttachCommand": "npm run dev",
-
+    "name": "T3 App Development with Bun",
+    "dockerFile": "Dockerfile",
+    "forwardPorts": [3000],
     "customizations": {
         "vscode": {
-            "extensions": [
-                "ms-vscode-remote.remote-containers",
-                "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode",
-                "prisma.prisma",
-                "eamodio.gitlens",
-                "bradlc.vscode-tailwindcss",
-                "pranaygp.vscode-css-peek",
-                "ms-edgedevtools.vscode-edge-devtools",
-                "ecmel.vscode-html-css",
-                "donjayamanne.python-extension-pack",
-                "ms-vscode.vscode-typescript-next",
-                "bierner.markdown-mermaid",
-                "github.copilot"
-            ]
+            "settings": {
+      "terminal.integrated.defaultProfile.linux": "bash",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+      },
+      "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+          "version": "lts"
+        }
+      },
+      "security.allowedUNCHosts": ["wsl$"]
+    },
+    "extensions": [
+      "dbaeumer.vscode-eslint",
+      "bradlc.vscode-tailwindcss",
+      "esbenp.prettier-vscode",
+      "prisma.prisma",
+      "ms-vscode.vscode-typescript-next",
+      "github.copilot",
+      "oven.bun-vscode",
+      "eamodio.gitlens",
+      "ms-edgedevtools.vscode-edge-devtools"
+    ]
         }
     },
+    
+    "postCreateCommand": "bun install",
+    "remoteUser": "developer",
+    "initializeCommand": "echo 'Connected'",
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
+    ]
+  }
 
-    "portsAttributes": {
-        "3000": {
-            "label": "Application",
-            "onAutoForward": "openPreview"
-        }
-    },
-    "forwardPorts": [3000]
-}
-
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
-}
