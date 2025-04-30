@@ -33,6 +33,3 @@ WORKDIR /workspaces/app
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 
-# Install the Visual Studio Code CLI
-RUN apt-get update && apt-get install -y wget && \
-    wget -qO- https://update.code.visualstudio.com/latest/linux-deb-x64/stable | dpkg -i -
