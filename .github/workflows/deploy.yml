@@ -42,6 +42,6 @@ jobs:
           publish_dir: ./NextWebDev/out
 
       - name: Restore next.config.js
-        working-directory: NextWebDev
+        working-directory: AboutMeSite
         run: git restore next.config.js
 
