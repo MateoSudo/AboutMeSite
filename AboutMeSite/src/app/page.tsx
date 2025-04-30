@@ -15,7 +15,7 @@ export default function Home() {
             href="/projects"
           >
             <h3 className="text-2xl font-bold">Projects →</h3>
-            <p>Check out the projects I've worked on.</p>
+            <p>Check out the projects I&apos;ve worked on.</p>
           </a>
           <a
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
