@@ -6,11 +6,11 @@ export default function Projects() {
             My <span className="text-purple-300">Projects</span>
           </h1>
           <p className="text-lg text-center max-w-2xl">
-            Here are some of the projects I've worked on:
+            Here are some of the projects I&apos;ve worked on:
           </p>
           <ul className="list-disc text-left">
-            <li>Project 1: A cool web app</li>
-            <li>Project 2: Another awesome project</li>
+            <li>Project 1: AI Trading Application</li>
+            <li>Project 2: Android Job Offer Application</li>
             <li>Project 3: Yet another amazing project</li>
           </ul>
         </div>
