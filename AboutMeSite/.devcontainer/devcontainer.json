@@ -1,54 +1,53 @@
 {
-    "name": "T3 App Development with Bun",
-    "dockerFile": "Dockerfile",
-    "forwardPorts": [3000],
-    "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-          "version": "lts"
-        }
-      },
-    "customizations": {
-        "vscode": {
-            "settings": {
-      "terminal.integrated.defaultProfile.linux": "bash",
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always"
-      },
-      "security.allowedUNCHosts": ["wsl$"],
-      "security.workspace.trust.enabled": false // Automatically trust all repositories
+  "name": "T3 App Development with Bun",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [3000],
+  "customizations": {
+      "vscode": {
+          "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "always"
     },
-    "extensions": [
-      "dbaeumer.vscode-eslint",
-      "bradlc.vscode-tailwindcss",
-      "esbenp.prettier-vscode",
-      "prisma.prisma",
-      "ms-vscode.vscode-typescript-next",
-      "github.copilot",
-      "oven.bun-vscode",
-      "eamodio.gitlens",
-      "ms-edgedevtools.vscode-edge-devtools",
-      "ms-azuretools.vscode-docker", // Docker Desktop extension
-      "pranaygp.vscode-css-peek",   // CSS Peek extension
-      "ecmel.vscode-html-css"
-      
-    ]
-    }
+    "security.allowedUNCHosts": ["wsl$"],
+    "security.workspace.trust.enabled": false // Automatically trust all repositories
   },
-    
-    "postCreateCommand": "bun install",
-    "remoteUser": "matthew",
-    "initializeCommand": "echo 'Connected'",
-    "mounts": [
-      "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
-    ],
-    "postStartCommand": "bun run dev",
-    "portsAttributes": {
-    "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "ms-vscode.vscode-typescript-next",
+    "github.copilot",
+    "oven.bun-vscode",
+    "eamodio.gitlens",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "ms-azuretools.vscode-docker", // Docker Desktop extension
+    "pranaygp.vscode-css-peek",   // CSS Peek extension
+    "ecmel.vscode-html-css",
+    "ms-vscode-remote.remote-containers"
+  ]
   }
+  },
+  "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "lts"
+      }
+    },
+  
+  "postCreateCommand": "bun install",
+  "remoteUser": "matthew",
+  "initializeCommand": "echo 'Connected'",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
+  ],
+  "portsAttributes": {
+  "3000": {
+    "label": "Application",
+    "onAutoForward": "openPreview"
+  }
+},
 }
 
 
