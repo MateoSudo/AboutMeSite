@@ -19,7 +19,7 @@
           "source.fixAll.eslint": "always"
         },
         "security.allowedUNCHosts": ["wsl$"],
-        "security.workspace.trust.enabled": false // Automatically trust all repositories
+        "security.workspace.trust.enabled": true // Automatically trust all repositories
       },
       "extensions": [
         "dbaeumer.vscode-eslint",
