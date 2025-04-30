@@ -5,7 +5,10 @@
   "customizations": {
     "features": {
       "ghcr.io/devcontainers/features/node:1": {
-        "version": "lts"
+        "version": "lts",
+      "ghcr.io/devcontainers/features/bun:1": {
+      "version": "latest"
+  }
       }
     },
       "vscode": {
@@ -37,7 +40,7 @@
   },
  
   
-  "postCreateCommand": "bun install",
+  "postCreateCommand": "bun install && bun add -g typescript ts-node turbo",
   "remoteUser": "matthew",
   "initializeCommand": "echo 'Connected'",
   "mounts": [
