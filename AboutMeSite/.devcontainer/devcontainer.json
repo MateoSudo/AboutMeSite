@@ -30,8 +30,8 @@
       "ms-edgedevtools.vscode-edge-devtools",
       "ms-azuretools.vscode-docker", // Docker Desktop extension
       "pranaygp.vscode-css-peek",   // CSS Peek extension
-      "ecmel.vscode-html-css",
-      "ms-vscode-remote.remote-containers"
+      "ecmel.vscode-html-css"
+      
     ]
         }
     },
@@ -47,8 +47,7 @@
       "label": "Application",
       "onAutoForward": "openPreview"
     }
-  },
-  "forwardPorts": [3000]
+  }
 }
 
 
