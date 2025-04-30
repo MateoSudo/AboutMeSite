@@ -1,5 +1,5 @@
 {
-  "name": "T3 App Development with Bun",
+  "name": "AboutMeSite",
   "dockerFile": "Dockerfile",
   "forwardPorts": [3000],
   "customizations": {
