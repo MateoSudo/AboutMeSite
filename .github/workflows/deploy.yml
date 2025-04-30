@@ -35,9 +35,9 @@ jobs:
       - name: Inject static export config (temp)
         working-directory: AboutMeSite
         run: |
-          echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.js
+          echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.cjs
 
-      - name: Debug after injecting next.config.js
+      - name: Debug after injecting next.config.cjs
         run: ls -la AboutMeSite
 
       - name: Build and export
@@ -55,16 +55,16 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: AboutMeSite/out
 
-      - name: Restore next.config.js
+      - name: Restore next.config.cjs
         working-directory: AboutMeSite
-        run: git restore next.config.js
+        run: git restore next.config.cjs
 
       - name: Debug package.json
         working-directory: AboutMeSite
         run: cat package.json
-      - name: Debug next.config.js
+      - name: Debug next.config.cjs
         working-directory: AboutMeSite
-        run: cat next.config.js
+        run: cat next.config.cjs
 
       - name: Debug output directory
         run: ls -la AboutMeSite/out
