@@ -33,10 +33,18 @@ jobs:
         working-directory: AboutMeSite
         run: bun install
 
-      - name: Inject static export config (temp)
+      - name: Inject improved static export config
         working-directory: AboutMeSite
         run: |
-          echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.cjs
+          echo "module.exports = {
+            output: 'export',
+            distDir: 'out',
+            trailingSlash: true,
+            images: {
+              unoptimized: true
+            }
+          };" > next.config.cjs
+          cat next.config.cjs
 
       - name: Debug after injecting next.config.cjs
         run: ls -la AboutMeSite
@@ -46,20 +54,39 @@ jobs:
         run: bun run build
 
       - name: Debug directory structure after build
-        run: ls -la AboutMeSite
+        run: |
+          echo "Current directory structure:"
+          ls -la AboutMeSite
+          echo "Next.js build directory:"
+          ls -la AboutMeSite/.next || echo "No .next directory found"
+          echo "Checking for out directory in different locations:"
+          ls -la AboutMeSite/out || echo "No out directory found"
+          ls -la AboutMeSite/.next/out || echo "No .next/out directory found"
 
-      - name: Debug output directory
-        run: ls -la AboutMeSite/out
+      - name: Export manually if needed
+        working-directory: AboutMeSite
+        run: |
+          if [ ! -d "out" ]; then
+            echo "No out directory found, trying to create it manually"
+            mkdir -p out
+            if [ -d ".next/standalone" ]; then
+              cp -r .next/standalone/* out/
+            fi
+            if [ -d ".next/static" ]; then
+              cp -r .next/static out/
+            fi
+          fi
+          ls -la out || echo "Still no out directory"
+
+      - name: Check package.json scripts
+        working-directory: AboutMeSite
+        run: cat package.json
 
       - name: List all files in AboutMeSite
-        run: find AboutMeSite
+        run: find AboutMeSite -type f | grep -v "node_modules" | sort
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: AboutMeSite/out
-
-      - name: Restore next.config.cjs
-        working-directory: AboutMeSite
-        run: git restore next.config.cjs
