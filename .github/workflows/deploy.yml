@@ -25,46 +25,46 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Debug app/AboutMeSite directory
-        run: ls -la app/AboutMeSite
+      - name: Debug AboutMeSite directory
+        run: ls -la AboutMeSite
 
       - name: Install dependencies
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: bun install
 
       - name: Inject static export config (temp)
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: |
           echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.js
 
       - name: Debug after injecting next.config.js
-        run: ls -la app/AboutMeSite
+        run: ls -la AboutMeSite
 
       - name: Build and export
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: |
           bun run build
           bunx next export
 
       - name: Debug after build and export
-        run: ls -la app/AboutMeSite/out
+        run: ls -la AboutMeSite/out
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: app/AboutMeSite/out
+          publish_dir: AboutMeSite/out
 
       - name: Restore next.config.js
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: git restore next.config.js
 
       - name: Debug package.json
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: cat package.json
       - name: Debug next.config.js
-        working-directory: app/AboutMeSite
+        working-directory: AboutMeSite
         run: cat next.config.js
 
       - name: Debug output directory
-        run: ls -la app/AboutMeSite/out
+        run: ls -la AboutMeSite/out
