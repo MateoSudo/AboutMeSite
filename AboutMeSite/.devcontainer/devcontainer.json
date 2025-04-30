@@ -3,6 +3,11 @@
   "dockerFile": "Dockerfile",
   "forwardPorts": [3000],
   "customizations": {
+    "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "lts"
+      }
+    },
       "vscode": {
           "settings": {
     "terminal.integrated.defaultProfile.linux": "bash",
@@ -30,17 +35,13 @@
   ]
   }
   },
-  "features": {
-      "ghcr.io/devcontainers/features/node:1": {
-        "version": "lts"
-      }
-    },
+ 
   
   "postCreateCommand": "bun install",
   "remoteUser": "matthew",
   "initializeCommand": "echo 'Connected'",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
   ],
   "portsAttributes": {
   "3000": {

@@ -28,7 +28,7 @@ RUN echo 'source ~/.bashrc' >> ~/.profile && \
     . ~/.bashrc && \
     bun install -g typescript ts-node turbo
 
-WORKDIR /workspaces/app
+WORKDIR /app
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
