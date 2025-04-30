@@ -15,33 +15,44 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Debug root directory
+        run: ls -la
+
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
+      - name: Debug app/AboutMeSite directory
+        run: ls -la app/AboutMeSite
+
       - name: Install dependencies
-        working-directory: AboutMeSite
+        working-directory: app/AboutMeSite
         run: bun install
 
       - name: Inject static export config (temp)
-        working-directory: AboutMeSite
+        working-directory: app/AboutMeSite
         run: |
           echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.js
 
+      - name: Debug after injecting next.config.js
+        run: ls -la app/AboutMeSite
+
       - name: Build and export
-        working-directory: AboutMeSite
+        working-directory: app/AboutMeSite
         run: |
           bun run build
           bunx next export
+
+      - name: Debug after build and export
+        run: ls -la app/AboutMeSite/out
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: AboutMeSite/out
+          publish_dir: app/AboutMeSite/out
 
       - name: Restore next.config.js
-        working-directory: AboutMeSite
+        working-directory: app/AboutMeSite
         run: git restore next.config.js
-
