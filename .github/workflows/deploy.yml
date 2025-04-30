@@ -38,7 +38,7 @@ jobs:
       - name: Debug after injecting next.config.cjs
         run: ls -la AboutMeSite
 
-      - name: Build
+      - name: Debug build output
         working-directory: AboutMeSite
         run: bun run build
 
