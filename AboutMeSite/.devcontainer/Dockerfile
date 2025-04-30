@@ -24,9 +24,7 @@ RUN curl -fsSL https://bun.sh/install | bash
 ENV PATH="/home/$USERNAME/.bun/bin:${PATH}"
 
 # Install global packages
-RUN echo 'source ~/.bashrc' >> ~/.profile && \
-    . ~/.bashrc && \
-    bun install -g typescript ts-node turbo
+RUN /home/$USERNAME/.bun/bin/bun install -g typescript ts-node turbo
 
 WORKDIR /workspaces/app
 
