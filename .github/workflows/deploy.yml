@@ -40,13 +40,11 @@ jobs:
       - name: Debug after injecting next.config.cjs
         run: ls -la AboutMeSite
 
-      - name: Build and export
+      - name: Build 
         working-directory: AboutMeSite
-        run: |
-          bun run build
-          bunx next export
+        run: bun run build
 
-      - name: Debug after build and export
+      - name: Debug after build 
         run: ls -la AboutMeSite/out
 
       - name: Deploy to GitHub Pages
