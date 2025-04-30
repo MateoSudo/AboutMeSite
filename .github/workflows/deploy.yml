@@ -7,6 +7,9 @@ on:
 permissions:
   contents: write
 
+env:
+  ACTIONS_STEP_DEBUG: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -38,7 +41,7 @@ jobs:
       - name: Debug after injecting next.config.cjs
         run: ls -la AboutMeSite
 
-      - name: Debug build output
+      - name: Build
         working-directory: AboutMeSite
         run: bun run build
 
@@ -47,6 +50,9 @@ jobs:
 
       - name: Debug output directory
         run: ls -la AboutMeSite/out
+
+      - name: List all files in AboutMeSite
+        run: find AboutMeSite
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -57,11 +63,3 @@ jobs:
       - name: Restore next.config.cjs
         working-directory: AboutMeSite
         run: git restore next.config.cjs
-
-      - name: Debug package.json
-        working-directory: AboutMeSite
-        run: cat package.json
-
-      - name: Debug next.config.cjs
-        working-directory: AboutMeSite
-        run: cat next.config.cjs
