@@ -2,6 +2,11 @@
     "name": "T3 App Development with Bun",
     "dockerFile": "Dockerfile",
     "forwardPorts": [3000],
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+          "version": "lts"
+        }
+      },
     "customizations": {
         "vscode": {
             "settings": {
@@ -9,11 +14,6 @@
       "editor.formatOnSave": true,
       "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "always"
-      },
-      "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-          "version": "lts"
-        }
       },
       "security.allowedUNCHosts": ["wsl$"],
       "security.workspace.trust.enabled": false // Automatically trust all repositories
@@ -33,8 +33,8 @@
       "ecmel.vscode-html-css"
       
     ]
-        }
-    },
+    }
+  },
     
     "postCreateCommand": "bun install",
     "remoteUser": "matthew",
@@ -42,6 +42,7 @@
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspaces/app,type=bind,consistency=cached"
     ],
+    "postStartCommand": "bun run dev",
     "portsAttributes": {
     "3000": {
       "label": "Application",
