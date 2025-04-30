@@ -1,3 +1,5 @@
+env:
+  ACTIONS_STEP_DEBUG: true
 name: Deploy AboutMeSite to GitHub Pages
 
 on:
@@ -56,3 +58,13 @@ jobs:
       - name: Restore next.config.js
         working-directory: app/AboutMeSite
         run: git restore next.config.js
+
+      - name: Debug package.json
+        working-directory: app/AboutMeSite
+        run: cat package.json
+      - name: Debug next.config.js
+        working-directory: app/AboutMeSite
+        run: cat next.config.js
+
+      - name: Debug output directory
+        run: ls -la app/AboutMeSite/out
