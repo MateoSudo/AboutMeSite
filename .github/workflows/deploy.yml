@@ -1,0 +1,47 @@
+name: Deploy AboutMeSite (Bun) to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        working-directory: NextWebDev
+        run: bun install
+
+      - name: Inject static export config (temp)
+        working-directory: NextWebDev
+        run: |
+          echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.js
+
+      - name: Build and export
+        working-directory: NextWebDev
+        run: |
+          bun run build
+          bunx next export
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./NextWebDev/out
+
+      - name: Restore next.config.js
+        working-directory: NextWebDev
+        run: git restore next.config.js
+
