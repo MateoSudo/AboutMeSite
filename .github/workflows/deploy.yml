@@ -1,4 +1,4 @@
-name: Deploy AboutMeSite (Bun) to GitHub Pages
+name: Deploy T3 App (Bun) to GitHub Pages
 
 on:
   push:
@@ -21,16 +21,16 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        working-directory: NextWebDev
+        working-directory: NextWebDev/AboutMeSite
         run: bun install
 
       - name: Inject static export config (temp)
-        working-directory: NextWebDev
+        working-directory: NextWebDev/AboutMeSite
         run: |
           echo "module.exports = { output: 'export', trailingSlash: true };" > next.config.js
 
       - name: Build and export
-        working-directory: NextWebDev
+        working-directory: NextWebDev/AboutMeSite
         run: |
           bun run build
           bunx next export
@@ -39,9 +39,9 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./NextWebDev/out
+          publish_dir: NextWebDev/AboutMeSite/out
 
       - name: Restore next.config.js
-        working-directory: AboutMeSite
+        working-directory: NextWebDev/AboutMeSite
         run: git restore next.config.js
 
