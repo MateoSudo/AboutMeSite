@@ -26,34 +26,45 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Debug root directory
-        run: ls -la
-
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
+      # Remove duplicate Install Bun step
+      
       - name: Debug project directory
         run: ls -la
 
       - name: Install dependencies
         run: bun install
 
-      - name: Inject improved static export config
+      - name: Debug project structure before modification
         run: |
-          echo "module.exports = {
+          echo "Project structure before API removal:"
+          find ./src -type d | sort
+          echo "Checking if API directory exists:"
+          ls -la ./src/app/api || echo "No API directory found at ./src/app/api"
+
+      - name: Prepare for static export
+        run: |
+          # Remove API routes that can't be statically exported
+          rm -rf ./src/app/api || echo "No API directory to remove"
+          
+          # Create next.config.js file for static export
+          echo "export const config = {
             output: 'export',
             distDir: 'out',
             trailingSlash: true,
             images: {
               unoptimized: true
             }
-          };" > next.config.cjs
-          cat next.config.cjs
+          }
+          
+          export default config;" > next.config.js
+          cat next.config.js
 
-      - name: Debug after injecting next.config.cjs
-        run: ls -la
+      - name: Debug after preparing for static export
+        run: |
+          echo "Project structure after API removal:"
+          find ./src -type d | sort
+          echo "Next.js config:"
+          cat next.config.js
 
       - name: Build
         run: bun run build
@@ -64,32 +75,21 @@ jobs:
           ls -la
           echo "Next.js build directory:"
           ls -la .next || echo "No .next directory found"
-          echo "Checking for out directory in different locations:"
+          echo "Checking for out directory:"
           ls -la out || echo "No out directory found"
-          ls -la .next/out || echo "No .next/out directory found"
-
-      - name: Export manually if needed
-        run: |
-          if [ ! -d "out" ]; then
-            echo "No out directory found, trying to create it manually"
-            mkdir -p out
-            if [ -d ".next/standalone" ]; then
-              cp -r .next/standalone/* out/
-            fi
-            if [ -d ".next/static" ]; then
-              cp -r .next/static out/
-            fi
-          fi
-          ls -la out || echo "Still no out directory"
 
       - name: Check package.json scripts
         run: cat package.json
 
-      - name: List all files in project
-        run: find . -type f | grep -v "node_modules" | sort
+      - name: List build artifacts
+        run: |
+          echo "Files in out directory:"
+          ls -la out || echo "No out directory found"
+          echo "Checking out directory structure:"
+          find ./out -type f | head -n 20 || echo "Could not list files in out directory"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: out
+          publish_dir: ./out
