@@ -1,0 +1,11 @@
+{
+    "telemetry": false,
+    "install": {
+      "registry": "https://registry.npmjs.org/",
+      "cache": true
+    },
+    "runtime": {
+      "jsx-runtime": "react",
+      "jsx-import-source": "react"
+    }
+  }
