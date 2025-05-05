@@ -54,20 +54,25 @@ jobs:
             echo "No 'next export' found in package.json, no changes needed"
           fi
 
+      # Modify the Prepare for static export step:
+
       - name: Prepare for static export
         run: |
           # Remove API routes that can't be statically exported
           rm -rf ./src/app/api || echo "No API directory to remove"
           
-          # Create next.config.js file for static export
+          # Create next.config.js file for static export with basePath
           echo 'const config = {
             output: "export",
             distDir: "out",
             trailingSlash: true,
+            basePath: "/AboutMeSite",
+            assetPrefix: "/AboutMeSite/",
             images: {
               unoptimized: true
             }
           };
+
           
           export default config;' > next.config.js
           cat next.config.js
