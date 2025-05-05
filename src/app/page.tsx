@@ -7,7 +7,7 @@ export default function Home() {
         </h1>
         <p className="text-lg text-center max-w-2xl">
           Hello! I am a passionate technology leader who specializes in leading a team of Software Engineers to create intuitive Enterprise AI Solutions.
-          This site showcases my projects, Experience, and Technical Expertise. 
+          This site showcases past Projects, Experience, and Technical Expertise. 
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <a

@@ -1,4 +1,4 @@
-export default function Projects() {
+export default function projects() {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
         <div className="container flex flex-col items-center gap-12 px-4 py-16">
