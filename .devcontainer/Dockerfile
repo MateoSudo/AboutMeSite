@@ -26,7 +26,7 @@ ENV PATH="/home/${USERNAME}/.bun/bin:${PATH}"
 
 
 
-WORKDIR /app
+
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
