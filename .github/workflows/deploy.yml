@@ -26,15 +26,21 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Debug AboutMeSite directory
-        run: ls -la AboutMeSite
+      - name: Debug root directory
+        run: ls -la
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Debug project directory
+        run: ls -la
 
       - name: Install dependencies
-        working-directory: AboutMeSite
         run: bun install
 
       - name: Inject improved static export config
-        working-directory: AboutMeSite
         run: |
           echo "module.exports = {
             output: 'export',
@@ -47,24 +53,22 @@ jobs:
           cat next.config.cjs
 
       - name: Debug after injecting next.config.cjs
-        run: ls -la AboutMeSite
+        run: ls -la
 
       - name: Build
-        working-directory: AboutMeSite
         run: bun run build
 
       - name: Debug directory structure after build
         run: |
           echo "Current directory structure:"
-          ls -la AboutMeSite
+          ls -la
           echo "Next.js build directory:"
-          ls -la AboutMeSite/.next || echo "No .next directory found"
+          ls -la .next || echo "No .next directory found"
           echo "Checking for out directory in different locations:"
-          ls -la AboutMeSite/out || echo "No out directory found"
-          ls -la AboutMeSite/.next/out || echo "No .next/out directory found"
+          ls -la out || echo "No out directory found"
+          ls -la .next/out || echo "No .next/out directory found"
 
       - name: Export manually if needed
-        working-directory: AboutMeSite
         run: |
           if [ ! -d "out" ]; then
             echo "No out directory found, trying to create it manually"
@@ -79,14 +83,13 @@ jobs:
           ls -la out || echo "Still no out directory"
 
       - name: Check package.json scripts
-        working-directory: AboutMeSite
         run: cat package.json
 
-      - name: List all files in AboutMeSite
-        run: find AboutMeSite -type f | grep -v "node_modules" | sort
+      - name: List all files in project
+        run: find . -type f | grep -v "node_modules" | sort
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: AboutMeSite/out
+          publish_dir: out

@@ -5,6 +5,13 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  output: 'export',
+  distDir: 'out',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
+};
 
 export default config;
