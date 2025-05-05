@@ -54,25 +54,21 @@ jobs:
             echo "No 'next export' found in package.json, no changes needed"
           fi
 
-      # Modify the Prepare for static export step:
-
+      # Modified static export step for custom domain:
       - name: Prepare for static export
         run: |
           # Remove API routes that can't be statically exported
           rm -rf ./src/app/api || echo "No API directory to remove"
           
-          # Create next.config.js file for static export with basePath
+          # Create next.config.js file for custom domain
           echo 'const config = {
             output: "export",
             distDir: "out",
             trailingSlash: true,
-            basePath: "/AboutMeSite",
-            assetPrefix: "/AboutMeSite/",
             images: {
               unoptimized: true
             }
           };
-
           
           export default config;' > next.config.js
           cat next.config.js
@@ -102,9 +98,17 @@ jobs:
           ls -la out || echo "No out directory found"
           echo "Checking out directory structure:"
           find ./out -type f | head -n 20 || echo "Could not list files in out directory"
+      
+      - name: Add CNAME file
+        run: echo 'hackwithmatt.dev' > out/CNAME
+
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+
+    
