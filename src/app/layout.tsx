@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="flex justify-between items-center p-4 bg-blue-700">
           <nav className="flex gap-6">
             <Link href="/" className="hover:text-purple-300">Home</Link> 
-            <Link href="/Projects" className="hover:text-purple-300">Projects</Link>
+            <Link href="/projects" className="hover:text-purple-300">Projects</Link>
             <Link href="/contact" className="hover:text-purple-300">Contact</Link>
           </nav>
           <div className = "flex gap-4">
