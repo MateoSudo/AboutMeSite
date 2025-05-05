@@ -25,8 +25,6 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
-      # Remove duplicate Install Bun step
       
       - name: Debug project directory
         run: ls -la
@@ -41,22 +39,37 @@ jobs:
           echo "Checking if API directory exists:"
           ls -la ./src/app/api || echo "No API directory found at ./src/app/api"
 
+      - name: Check package.json scripts
+        run: cat package.json
+
+      - name: Update build script if needed
+        run: |
+          # Check if package.json contains "next export" and remove it
+          if grep -q "next export" package.json; then
+            echo "Updating package.json to remove deprecated 'next export' command..."
+            sed -i 's/"build": "next build && next export"/"build": "next build"/' package.json
+            echo "Updated package.json:"
+            cat package.json
+          else
+            echo "No 'next export' found in package.json, no changes needed"
+          fi
+
       - name: Prepare for static export
         run: |
           # Remove API routes that can't be statically exported
           rm -rf ./src/app/api || echo "No API directory to remove"
           
           # Create next.config.js file for static export
-          echo "export const config = {
-            output: 'export',
-            distDir: 'out',
+          echo 'const config = {
+            output: "export",
+            distDir: "out",
             trailingSlash: true,
             images: {
               unoptimized: true
             }
-          }
+          };
           
-          export default config;" > next.config.js
+          export default config;' > next.config.js
           cat next.config.js
 
       - name: Debug after preparing for static export
@@ -77,9 +90,6 @@ jobs:
           ls -la .next || echo "No .next directory found"
           echo "Checking for out directory:"
           ls -la out || echo "No out directory found"
-
-      - name: Check package.json scripts
-        run: cat package.json
 
       - name: List build artifacts
         run: |
