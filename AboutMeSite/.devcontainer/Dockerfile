@@ -17,11 +17,12 @@ RUN groupadd --gid $USER_GID $USERNAME \
 ENV DEVCONTAINER=true
 
 # Install Bun
+ARG USERNAME=matthew
 USER $USERNAME
 RUN curl -fsSL https://bun.sh/install | bash
 
 # Add Bun to PATH
-ENV PATH="/home/$USERNAME/.bun/bin:${PATH}"
+ENV PATH="/home/${USERNAME}/.bun/bin:${PATH}"
 
 
 
