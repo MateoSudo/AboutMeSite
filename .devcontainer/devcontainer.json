@@ -34,7 +34,8 @@
         "ms-azuretools.vscode-docker", // Docker Desktop extension
         "pranaygp.vscode-css-peek",   // CSS Peek extension
         "ecmel.vscode-html-css",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "github.vscode-github-actions"
       ]
     }
   },
