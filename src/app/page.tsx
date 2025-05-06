@@ -7,11 +7,19 @@ export default function Home() {
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           Matthew Ragsdale
         </h1>
-        <p className="text-lg text-center max-w-2xl">
-          <Image src="/images/profile.jpg"  alt="Matthew Ragsdale"/>
-        Hello! I&apos;m a results-driven Technology Manager leading a high-performing DevSecOps team focused on building secure, scalable, and intelligent enterprise solutions.
-        This site highlights my leadership experience, technical projects, and strategic contributions across cloud infrastructure, automation, and AI-powered platforms. 
-        </p>
+          <p className="text-lg text-center max-w-2xl">
+            <div className="relative w-64 h-64 mx-auto mb-6">
+              <Image 
+                src="/images/profile.jpg"  
+                alt="Matthew Ragsdale"
+                width={256}
+                height={256}
+                className="rounded-full object-cover"
+              />
+            </div>
+          Hello! I&apos;m a results-driven Technology Manager leading a high-performing DevSecOps team focused on building secure, scalable, and intelligent enterprise solutions.
+          This site highlights my leadership experience, technical projects, and strategic contributions across cloud infrastructure, automation, and AI-powered platforms. 
+          </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <a
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
