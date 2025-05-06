@@ -6,8 +6,8 @@ export default function Home() {
           Matthew Ragsdale
         </h1>
         <p className="text-lg text-center max-w-2xl">
-          Hello! I am a passionate technology leader who specializes in leading a team of Software Engineers to create intuitive Enterprise AI Solutions.
-          This site showcases past Projects, Experience, and Technical Expertise. 
+        Hello! I&apos;m a results-driven Technology Manager leading a high-performing DevSecOps team focused on building secure, scalable, and intelligent enterprise solutions.
+        This site highlights my leadership experience, technical projects, and strategic contributions across cloud infrastructure, automation, and AI-powered platforms. 
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <a
