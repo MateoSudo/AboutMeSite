@@ -6,7 +6,7 @@ export default function Projects() {
         id: 1,
         title: "AI Trading Application",
         description: "Developed a machine learning-based trading platform that analyzes market patterns and historical data to make predictive trade recommendations. The system uses natural language processing to interpret financial news and sentiment analysis to gauge market trends.",
-        technologies: ["Python", "TensorFlow", "PyTorch", "React", "Node.js", "MongoDB"],
+        technologies: ["Python", "TensorFlow", "PyTorch", "React", "Node.js", "MongoDB","Next.js", "JavaScript/TypeScript", "HTML/CSS"],
         image: "/images/trading-app.png",
         isEnterprise: false
       },
@@ -14,7 +14,7 @@ export default function Projects() {
         id: 2,
         title: "Android Job Offer Application",
         description: "Built a mobile application that streamlines the job application process. The app features personalized job recommendations, application tracking, and interview scheduling capabilities, resulting in a 40% increase in user engagement.",
-        technologies: ["Kotlin", "Java", "Firebase", "RESTful APIs", "Android SDK", "Android Studio"],
+        technologies: ["Kotlin", "Java", "Firebase", "RESTful APIs", "Android SDK", "Android Studio", "XML"],
         image: "/images/job-app.png",
         isEnterprise: false
       },
@@ -22,7 +22,7 @@ export default function Projects() {
         id: 3,
         title: "AI Inventory Optimization Application",
         description: "Created an inventory management system that uses predictive analytics to optimize stock levels. The system reduced inventory costs by 25% while maintaining service levels by accurately forecasting demand patterns and supply chain disruptions.",
-        technologies: ["Python", "scikit-learn", "React", "PostgreSQL", "Docker"],
+        technologies: ["Python", "scikit-learn", "React", "PostgreSQL", "Docker", "JavaScript/TypeScript", "HTML/CSS"],
         image: "/images/inventory.jpg",
         isEnterprise: false
       },
@@ -30,15 +30,15 @@ export default function Projects() {
         id: 4,
         title: "AI Open Source Data Extraction",
         description: "Created an application to extract structured and unstructured data from open data sources",
-        technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "Next.js"],
+        technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "Next.js", "JavaScript/TypeScript", "HTML/CSS"],
         image: "/images/OSINT.png",
         isEnterprise: false
       },
       {
         id: 5,
         title: "AI Predictive Maintenance",
-        description: "Created application in React, Node, and Next.js leveraging AI that predicts when a manufacturing robot will break with 85% accuracey",
-        technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "React", "Node.js", "Next.js"],
+        description: "Created application in React, Node, and Next.js leveraging AI that predicts when a manufacturing robot will break with 85% accuracy",
+        technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "React", "Node.js", "Next.js", "JavaScript/TypeScript","REST API", "HTML/CSS"],
         image: "/images/robot.jpg",
         isEnterprise: false
       }
