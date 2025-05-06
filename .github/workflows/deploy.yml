@@ -107,6 +107,13 @@ jobs:
       - name: Add CNAME file
         run: echo 'hackwithmatt.dev' > out/CNAME
 
+      - name: Debug project directories
+        run: |
+          echo "Checking project files:"
+          find ./src/app/projects -type f | sort
+          echo "Checking output files:"
+          find ./out/projects -type f | sort || echo "No projects directory in output"
+
       - name: Add .nojekyll file
         run: touch out/.nojekyll
 

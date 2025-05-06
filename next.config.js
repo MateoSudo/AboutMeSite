@@ -9,6 +9,8 @@ const config = {
   output: 'export',
   distDir: 'out',
   trailingSlash: true,
+  // Add this if you're not using a custom domain
+  // basePath: '/AboutMeSite',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -18,7 +20,6 @@ const config = {
       },
     ],
   },
- 
 };
 
 export default config;
