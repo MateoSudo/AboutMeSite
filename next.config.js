@@ -10,11 +10,18 @@ const config = {
   distDir: 'out',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  // Add this to prevent font manifest errors
+  // Make sure output is exporting static files
   experimental: {
-    appDir: true
+    appDir: true,
+    serverActions: false,
   }
 };
 
