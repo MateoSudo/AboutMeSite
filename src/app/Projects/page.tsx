@@ -37,7 +37,7 @@ export default function Projects() {
       {
         id: 5,
         title: "AI Predictive Maintenance",
-        description: "Created application in React, Node, and Next.js leveraging AI that predicts when a manufacturing robot will break with 85% confidence interval",
+        description: "Created application in React, Node, and Next.js leveraging AI that predicts when a manufacturing robot will break with 85% accuracey",
         technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "React", "Node.js", "Next.js"],
         image: "/images/robot.jpg",
         isEnterprise: false
@@ -51,7 +51,7 @@ export default function Projects() {
             My <span className="text-purple-300">Projects</span>
           </h1>
           <p className="text-lg text-center max-w-2xl mb-8">
-            Here are some of the projects I&apos;ve worked on. Please note I am unable to share pictures or code for Enterprise projects which are confidential.
+            Here are some of the projects I&apos;ve worked on. Please note I am unable to share code for Enterprise projects that I worked on for previous companies.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
