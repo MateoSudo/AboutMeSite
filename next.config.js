@@ -11,6 +11,10 @@ const config = {
   trailingSlash: true,
   images: {
     unoptimized: true
+  },
+  // Add this to prevent font manifest errors
+  experimental: {
+    appDir: true
   }
 };
 

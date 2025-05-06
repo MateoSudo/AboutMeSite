@@ -25,7 +25,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      
+
       - name: Debug project directory
         run: ls -la
 
@@ -59,7 +59,7 @@ jobs:
         run: |
           # Remove API routes that can't be statically exported
           rm -rf ./src/app/api || echo "No API directory to remove"
-          
+
           # Create next.config.js file for custom domain
           echo 'const config = {
             output: "export",
@@ -69,7 +69,7 @@ jobs:
               unoptimized: true
             }
           };
-          
+
           export default config;' > next.config.js
           cat next.config.js
 
@@ -98,7 +98,12 @@ jobs:
           ls -la out || echo "No out directory found"
           echo "Checking out directory structure:"
           find ./out -type f | head -n 20 || echo "Could not list files in out directory"
-      
+
+      - name: Create font manifest files
+        run: |
+          mkdir -p out/server
+          echo '{}' > out/server/next-font-manifest.json
+          echo '{}' > out/server/font-manifest.json
       - name: Add CNAME file
         run: echo 'hackwithmatt.dev' > out/CNAME
 
@@ -110,5 +115,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
-
-    
