@@ -20,7 +20,7 @@ export default function Projects() {
       },
       {
         id: 3,
-        title: "AI Inventory Optimization Application - Enterprise",
+        title: "AI Inventory Optimization Application",
         description: "Created an inventory management system that uses predictive analytics to optimize stock levels. The system reduced inventory costs by 25% while maintaining service levels by accurately forecasting demand patterns and supply chain disruptions.",
         technologies: ["Python", "scikit-learn", "React", "PostgreSQL", "Docker"],
         image: "/images/inventory.jpg",
@@ -28,7 +28,7 @@ export default function Projects() {
       },
       {
         id: 4,
-        title: "AI Open Source Data Extraction - Enterprise",
+        title: "AI Open Source Data Extraction",
         description: "Created an application to extract structured and unstructured data from open data sources",
         technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "Next.js"],
         image: "/images/OSINT.png",
@@ -36,7 +36,7 @@ export default function Projects() {
       },
       {
         id: 5,
-        title: "AI Predictive Maintenance - Enterprise",
+        title: "AI Predictive Maintenance",
         description: "Created application in React, Node, and Next.js leveraging AI that predicts when a manufacturing robot will break with 85% confidence interval",
         technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "React", "Node.js", "Next.js"],
         image: "/images/robot.jpg",
