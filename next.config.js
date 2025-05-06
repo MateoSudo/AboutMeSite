@@ -18,10 +18,11 @@ const config = {
       },
     ],
   },
-  // Make sure output is exporting static files
+  // Fix the experimental options by removing invalid keys
   experimental: {
-    appDir: true,
-    serverActions: false,
+    serverComponentsExternalPackages: []
+    // Removed 'appDir' as it's no longer experimental
+    // Removed 'serverActions' with incorrect boolean value
   }
 };
 
