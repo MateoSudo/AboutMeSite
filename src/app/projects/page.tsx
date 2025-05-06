@@ -41,6 +41,14 @@ export default function Projects() {
         technologies: ["Python", "scikit-learn", "React", "PostgreSQL","MongoDB", "Redis", "Docker", "PyTorch", "React", "Node.js", "Next.js", "JavaScript/TypeScript","REST API", "HTML/CSS"],
         image: "/images/robot.jpg",
         isEnterprise: false
+      },
+      {
+        id: 6,
+        title: "Cyber Security Port & Packet Scanner ",
+        description: "Cyber Security Application that scans for open ports and packets on LAN for pen testing",
+        technologies: ["HTML/CSS", "C++", "React", ".NET", "JavaScript/TypeScript"],
+        image: "/images/cyber.jpg",
+        isEnterprise: false
       }
     ];
   
@@ -51,7 +59,7 @@ export default function Projects() {
             My <span className="text-purple-300">Projects</span>
           </h1>
           <p className="text-lg text-center max-w-2xl mb-8">
-            Here are some of the projects I&apos;ve worked on. Please note I am unable to share code for Enterprise projects that I worked on for previous companies.
+          Below are some of the projects I've worked on, showcasing my expertise across various areas of computing. Please note that I cannot share code from enterprise projects due to confidentiality agreements.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
