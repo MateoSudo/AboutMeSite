@@ -18,12 +18,7 @@ const config = {
       },
     ],
   },
-  // Fix the experimental options by removing invalid keys
-  experimental: {
-    serverExternalPackages: []
-    // Removed 'appDir' as it's no longer experimental
-    // Removed 'serverActions' with incorrect boolean value
-  }
+ 
 };
 
 export default config;
