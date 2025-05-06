@@ -39,6 +39,9 @@
       ]
     }
   },
+  "remoteEnv": {
+    "SKIP_ENV_VALIDATION": "1"
+  },
   "postCreateCommand": "bun install && bun add -g typescript ts-node turbo",
   "remoteUser": "matthew",
   "initializeCommand": "echo 'Connected'",
