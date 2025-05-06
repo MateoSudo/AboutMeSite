@@ -59,7 +59,7 @@ export default function Projects() {
             My <span className="text-purple-300">Projects</span>
           </h1>
           <p className="text-lg text-center max-w-2xl mb-8">
-          Below are some of the projects I've worked on, showcasing my expertise across various areas of computing. Please note that I cannot share code from enterprise projects due to confidentiality agreements.
+          Below are some of the projects I&apos;ve worked on, showcasing my expertise across various areas of computing. Please note that I cannot share code from enterprise projects due to confidentiality agreements.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
