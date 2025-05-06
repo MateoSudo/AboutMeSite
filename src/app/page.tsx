@@ -11,7 +11,7 @@ export default function Home() {
         {/* Move the div outside of the paragraph */}
         <div className="relative w-64 h-64 mx-auto mb-6">
           <Image 
-            src="/images/profile.jpg"  
+            src="/images/profile.png"  
             alt="Matthew Ragsdale"
             width={256}
             height={256}
