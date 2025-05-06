@@ -37,7 +37,7 @@ export default function Home() {
             href="/contact"
           >
             <h3 className="text-2xl font-bold">Contact →</h3>
-            <p>Get in touch with me for collaborations or questions.</p>
+            <p>Get in touch with me for collaboration opportunities or questions.</p>
           </a>
         </div>
       </div>
