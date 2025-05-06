@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-800 to-blue-800 text-white">
@@ -6,6 +8,7 @@ export default function Home() {
           Matthew Ragsdale
         </h1>
         <p className="text-lg text-center max-w-2xl">
+          <Image src="/images/profile.jpg"  alt="Matthew Ragsdale"/>
         Hello! I&apos;m a results-driven Technology Manager leading a high-performing DevSecOps team focused on building secure, scalable, and intelligent enterprise solutions.
         This site highlights my leadership experience, technical projects, and strategic contributions across cloud infrastructure, automation, and AI-powered platforms. 
         </p>
