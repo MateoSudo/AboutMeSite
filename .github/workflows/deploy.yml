@@ -55,10 +55,19 @@ jobs:
           fi
 
       # Modified static export step for custom domain:
+      # Modified static export step for custom domain:
       - name: Prepare for static export
         run: |
-          # Remove API routes that can't be statically exported
-          rm -rf ./src/app/api || echo "No API directory to remove"
+          # Remove API routes that can't be statically exported but keep the client-side tRPC code
+          if [ -d "./src/app/api" ]; then
+            echo "API directory exists, removing for static export"
+            rm -rf ./src/app/api
+          else
+            echo "No API directory found, skipping removal"
+          fi
+
+          # Create environment variable for build time to disable server components
+          echo "SKIP_ENV_VALIDATION=true" >> .env
 
           # Create next.config.js file for custom domain
           echo 'const config = {
@@ -82,6 +91,8 @@ jobs:
 
       - name: Build
         run: bun run build
+        ENV:
+          SKIP_ENV_VALIDATION: true
 
       - name: Debug directory structure after build
         run: |
