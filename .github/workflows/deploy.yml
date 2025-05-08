@@ -91,7 +91,7 @@ jobs:
 
       - name: Build
         run: bun run build
-        ENV:
+        env:
           SKIP_ENV_VALIDATION: true
 
       - name: Debug directory structure after build
