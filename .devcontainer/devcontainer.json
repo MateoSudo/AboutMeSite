@@ -1,57 +1,34 @@
 {
-  "name": "AboutMeSite",
-  "dockerFile": "Dockerfile",
-  "forwardPorts": [3000],
-  "customizations": {
-    "features": {
-      "ghcr.io/devcontainers/features/node:1": {
-        "version": "lts"
-      },
-      "ghcr.io/devcontainers/features/bun:1": {
-        "version": "latest"
-      }
-    },
-    "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "always"
-        },
-        "security.allowedUNCHosts": ["wsl$"],
-        "security.workspace.trust.enabled": true // Automatically trust all repositories
-      },
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss",
-        "esbenp.prettier-vscode",
-        "prisma.prisma",
-        "ms-vscode.vscode-typescript-next",
-        "github.copilot",
-        "oven.bun-vscode",
-        "eamodio.gitlens",
-        "ms-edgedevtools.vscode-edge-devtools",
-        "ms-azuretools.vscode-docker", // Docker Desktop extension
-        "pranaygp.vscode-css-peek",   // CSS Peek extension
-        "ecmel.vscode-html-css",
-        "ms-vscode-remote.remote-containers",
-        "github.vscode-github-actions"
-      ]
-    }
-  },
-  "postCreateCommand": "bun install && bun add -g typescript ts-node turbo",
-  "remoteUser": "matthew",
-  "initializeCommand": "echo 'Connected'",
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
-  ],
-  "portsAttributes": {
-    "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "postStartCommand": "bun dev"
+	"name": "Bun & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"forwardPorts": [
+		5432,3000
+	],
+
+	"postCreateCommand": "bun install",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"bradlc.vscode-tailwindcss",
+				"esbenp.prettier-vscode",
+				"prisma.prisma",
+				"ms-vscode.vscode-typescript-next",
+				"github.copilot",
+				"oven.bun-vscode",
+				"eamodio.gitlens",
+				"ms-edgedevtools.vscode-edge-devtools",
+				"ms-azuretools.vscode-docker", 
+				"pranaygp.vscode-css-peek",   
+				"ecmel.vscode-html-css",
+				"ms-vscode-remote.remote-containers"
+			]
+		}
+	},
+	"remoteUser": "root"
 }
 
 
