@@ -11,10 +11,14 @@ services:
 
     command: sleep infinity
 
-    network_mode: service:db
+    depends_on:
+      - db
+
+    ports:
+      - "3000:3000"
 
   db:
-    image: postgres:latest
+    image: docker.io/postgres:latest
     restart: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
@@ -22,6 +26,8 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres-data:
