@@ -1,4 +1,4 @@
-FROM oven/bun:debian
+FROM docker.io/oven/bun:debian
 
 # Config Bun
 ENV PATH="~/.bun/bin:${PATH}"
