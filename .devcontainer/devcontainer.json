@@ -1,11 +1,14 @@
 {
-	"name": "Bun & PostgreSQL",
+	"name": "Bun & PostgreSQL Podman",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"forwardPorts": [
 		5432,3000
 	],
+	"remoteEnv": {
+    "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+  	},
 
 	"postCreateCommand": "bun install",
 
@@ -13,6 +16,7 @@
 		"vscode": {
 			"extensions": [
 				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
 				"bradlc.vscode-tailwindcss",
 				"esbenp.prettier-vscode",
 				"prisma.prisma",
@@ -20,7 +24,6 @@
 				"github.copilot",
 				"oven.bun-vscode",
 				"eamodio.gitlens",
-				"ms-edgedevtools.vscode-edge-devtools",
 				"ms-azuretools.vscode-docker", 
 				"pranaygp.vscode-css-peek",   
 				"ecmel.vscode-html-css",
