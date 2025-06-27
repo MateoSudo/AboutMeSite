@@ -3,14 +3,15 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"shutdownAction": "stopCompose",
 	"forwardPorts": [
 		5432, 3000
 	],
 	"remoteEnv": {
-		"DOCKER_HOST": "unix:///run/user/matthew/podman/podman.sock"
+		"DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
 	},
 	"containerEnv": {
-		"DOCKER_HOST": "unix:///run/user/matthew/podman/podman.sock"
+		"DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
 	},
 
 	"postCreateCommand": "bun install",
@@ -29,7 +30,11 @@
 				"ms-azuretools.vscode-docker", 
 				"pranaygp.vscode-css-peek",   
 				"ecmel.vscode-html-css"
-			]
+			],
+			"settings": {
+				"dev.containers.dockerPath": "podman",
+				"dev.containers.dockerComposePath": "podman-compose"
+			}
 		}
 	},
 	"remoteUser": "matthew"

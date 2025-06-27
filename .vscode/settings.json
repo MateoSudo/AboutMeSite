@@ -1,5 +1,8 @@
 {
     "dev.containers.dockerPath": "podman",
     "dev.containers.dockerComposePath": "podman-compose",
-    "docker.dockerPath": "podman"
+    "docker.dockerPath": "podman",
+    "dev.containers.defaultExtensions": [],
+    "dev.containers.copyGitConfig": true,
+    "dev.containers.gitCredentialHelperConfigLocation": "system"
 }
