@@ -7,7 +7,7 @@
 		5432,3000
 	],
 	"remoteEnv": {
-    	"DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+    	"DOCKER_HOST": "unix:///run/user/matthew/podman/podman.sock"
   	},
 
 	"postCreateCommand": "bun install",
@@ -29,7 +29,7 @@
 			]
 		}
 	},
-	"remoteUser": "root"
+	"remoteUser": "matthew"
 }
 
 
