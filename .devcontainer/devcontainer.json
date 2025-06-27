@@ -7,7 +7,7 @@
 		5432,3000
 	],
 	"remoteEnv": {
-    "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+    	"DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
   	},
 
 	"postCreateCommand": "bun install",
@@ -16,7 +16,6 @@
 		"vscode": {
 			"extensions": [
 				"dbaeumer.vscode-eslint",
-				"ms-azuretools.vscode-docker",
 				"bradlc.vscode-tailwindcss",
 				"esbenp.prettier-vscode",
 				"prisma.prisma",
@@ -27,7 +26,6 @@
 				"ms-azuretools.vscode-docker", 
 				"pranaygp.vscode-css-peek",   
 				"ecmel.vscode-html-css",
-				"ms-vscode-remote.remote-containers"
 			]
 		}
 	},
