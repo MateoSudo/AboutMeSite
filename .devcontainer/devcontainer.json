@@ -36,8 +36,7 @@
 				"dev.containers.dockerComposePath": "podman-compose"
 			}
 		}
-	},
-	"remoteUser": "matthew"
+	}
 }
 
 
